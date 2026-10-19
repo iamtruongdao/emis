@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Thư Mời Chị Em Giáo Dục Tư Thục - 20/10 EMIS</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Pacifico&display=swap');
+
+/* Reset & base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body, html {
+  height: 100%;
+  background: linear-gradient(135deg, #ffe0ea 0%, #fff0f5 50%, #ffdde8 100%);
+  overflow-x: hidden;
+  color: #7d4e57;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  user-select: none;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Sparkles & floating hearts container */
+#background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+/* Falling petals container */
+#petals {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+/* Sparkle style */
+.sparkle, .floating-heart {
+  position: absolute;
+  opacity: 0.8;
+  animation-timing-function: linear;
+  will-change: transform, opacity;
+}
+.sparkle {
+  width: 6px;
+  height: 6px;
+  background: radial-gradient(circle at center, #fff9ff 0%, #f9c5d1 80%, transparent 100%);
+  border-radius: 50%;
+  filter: drop-shadow(0 0 2px #f9c5d1);
+  animation-name: sparkle-fall;
+  animation-iteration-count: infinite;
+}
+.floating-heart {
+  width: 14px;
+  height: 14px;
+  background: #f9a1b0;
+  clip-path: polygon(
+    50% 0%, 61% 15%, 75% 15%, 85% 25%, 85% 40%, 75% 50%, 50% 75%, 25% 50%, 15% 40%, 15% 25%, 25% 15%, 39% 15%
+  );
+  filter: drop-shadow(0 0 1px #f06a7a);
+  animation-name: heart-float;
+  animation-iteration-count: infinite;
+}
+@keyframes sparkle-fall {
+  0% {
+    transform: translateY(-10px) translateX(0) scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(110vh) translateX(20px) scale(0.5);
+    opacity: 0;
+  }
+}
+@keyframes heart-float {
+  0% {
+    transform: translateY(0) translateX(0) scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: translateY(-15px) translateX(10px) scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-30px) translateX(20px) scale(1);
+    opacity: 0;
+  }
+}
+
+/* Petal styles and animation */
+.petal {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(circle at center, #ffc2d4 40%, #ffdae5 70%, transparent 100%);
+  opacity: 0.8;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  pointer-events: none;
+  will-change: transform, opacity;
+  animation-name: petal-fall, petal-sway;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  filter: drop-shadow(0 0 3px #ffdae5);
+}
+.petal:nth-child(odd) {
+  background: radial-gradient(circle at center, #ffdae5 40%, #ffc2d4 70%, transparent 100%);
+  filter: drop-shadow(0 0 3px #ffc2d4);
+}
+.petal:nth-child(even) {
+  background: radial-gradient(circle at center, #ffc2d4 40%, #ffdae5 70%, transparent 100%);
+  filter: drop-shadow(0 0 3px #ffdae5);
+}
+
+@keyframes petal-fall {
+  0% {
+    transform: translateY(-10vh) rotate(0deg);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+@keyframes petal-sway {
+  0%, 100% {
+    transform-origin: center;
+    transform: rotate(0deg);
+  }
+  50% {
+    transform-origin: center;
+    transform: rotate(15deg);
+  }
+}
+
+/* Container */
+.container {
+  position: relative;
+  max-width: 1080px;
+  margin: 3rem auto 4rem;
+  padding: 2.5rem 3rem 3rem;
+  background: #fffbfc;
+  border-radius: 28px;
+  border: 1px solid #f9dce4;
+  box-shadow: 0 15px 45px rgba(235, 140, 165, 0.2);
+  color: #7d4e57;
+  user-select: text;
+  z-index: 10;
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: left;
+}
+
+/* Left column */
+.left-column {
+  flex: 1 1 480px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  user-select: none;
+}
+
+/* Right column */
+.right-column {
+  flex: 1 1 480px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+}
+
+/* Badge */
+.badge {
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: #b82d52;
+  letter-spacing: 0.12em;
+  margin-bottom: 0.8rem;
+  user-select: none;
+  text-align: center;
+  width: 100%;
+}
+
+/* Title */
+h1 {
+  font-family: 'Dancing Script', 'Pacifico', cursive;
+  font-size: 3rem;
+  font-weight: 900;
+  margin-bottom: 0.3rem;
+  color: #b8252a;
+  user-select: text;
+  text-align: center;
+  width: 100%;
+}
+/* Subtitle */
+.subtitle {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1.3rem;
+  color: #7d4e57;
+  margin-bottom: 1.8rem;
+  letter-spacing: 0.04em;
+  user-select: text;
+  text-align: center;
+  width: 100%;
+}
+
+/* Intro text */
+.intro {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  color: #7d4e57;
+  padding: 0 0.5rem;
+  user-select: text;
+  text-align: center;
+  width: 100%;
+}
+
+/* Event info cards container */
+.cards {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+}
+.card {
+  flex: 1 1 140px;
+  background: #fff0f4;
+  border-radius: 16px;
+  padding: 1.2rem 1.5rem;
+  border: 1px solid #f4cfd9;
+  color: #9e1f28;
+  font-weight: 600;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  user-select: text;
+  cursor: default;
+  box-shadow: none;
+}
+.card span.icon {
+  font-size: 1.6rem;
+  line-height: 1;
+  user-select: none;
+  color: #b82d52;
+}
+
+/* Countdown */
+.countdown {
+  font-weight: 700;
+  font-size: 2.8rem;
+  color: #d13654;
+  margin-bottom: 2rem;
+  letter-spacing: 0.06em;
+  user-select: none;
+  text-align: center;
+  border: 1.5px solid #f2c2cf;
+  border-radius: 16px;
+  padding: 0.6rem 1rem;
+  background: #fff0f4;
+}
+
+/* Special message box */
+.message-box {
+  background: #fff2f6;
+  border-radius: 16px;
+  padding: 1.6rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #7d4e57;
+  border: 1.5px dashed #eabec9;
+  box-shadow: none;
+  margin-bottom: 2.8rem;
+  line-height: 1.5;
+  user-select: text;
+  position: relative;
+  text-align: center;
+}
+.message-box::before {
+  content: "💌 Lời nhắn đặc biệt";
+  position: absolute;
+  top: -1.6rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #eabec9;
+  color: #b82d52;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 0.25rem 1rem;
+  border-radius: 16px;
+  user-select: none;
+  box-shadow: none;
+}
+
+/* Confirm button */
+.btn-confirm {
+  background: linear-gradient(90deg, #ef534f 0%, #ec3872 100%);
+  border: none;
+  border-radius: 40px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.3rem;
+  padding: 1rem 3rem;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(236, 56, 114, 0.35);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  user-select: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  justify-content: center;
+  margin: 0 auto;
+  width: fit-content;
+}
+.btn-confirm:hover, .btn-confirm:focus {
+  background: linear-gradient(90deg, #ec3872 0%, #ef534f 100%);
+  box-shadow: 0 8px 24px rgba(236, 56, 114, 0.5);
+  outline: none;
+  color: #fff;
+}
+.btn-confirm:active {
+  transform: scale(0.97);
+}
+
+/* Popup overlay */
+#popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  user-select: none;
+}
+#popup {
+  background: rgba(255 251 252 / 0.96);
+  border-radius: 24px;
+  padding: 2rem 3rem;
+  max-width: 360px;
+  text-align: center;
+  box-shadow:
+    0 8px 40px rgba(235, 140, 165, 0.4);
+  color: #b8252a;
+  font-weight: 700;
+  font-size: 1.3rem;
+  line-height: 1.4;
+  position: relative;
+  user-select: text;
+}
+#popup button.close-btn {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.8rem;
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  color: #b8252a;
+  cursor: pointer;
+  font-weight: 900;
+  user-select: none;
+  transition: color 0.3s ease;
+}
+#popup button.close-btn:hover {
+  color: #ffdde8;
+}
+
+/* Responsive */
+@media (max-width: 1080px) {
+  .container {
+    max-width: 95vw;
+    flex-direction: column;
+    padding: 2rem 1.5rem 3rem;
+    text-align: center;
+  }
+  .left-column, .right-column {
+    flex: 1 1 100%;
+    align-items: center;
+  }
+  .cards {
+    justify-content: center;
+  }
+  .card {
+    justify-content: center;
+  }
+  .countdown {
+    font-size: 2.2rem;
+  }
+  .btn-confirm {
+    width: 100%;
+    font-size: 1.2rem;
+    padding: 1rem 0;
+  }
+  h1 {
+    font-size: 2.4rem;
+  }
+}
+
+/* Responsive small phones */
+@media (max-width: 520px) {
+  .container {
+    padding: 1.5rem 1rem 2rem;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+  .subtitle {
+    font-size: 1.1rem;
+  }
+  .card {
+    font-size: 0.95rem;
+    padding: 0.8rem 1rem;
+  }
+  .countdown {
+    font-size: 1.8rem;
+  }
+  .btn-confirm {
+    font-size: 1.1rem;
+    padding: 0.9rem 0;
+  }
+}
+
+/* Falling petals animation with 3D rotation sway */
+@keyframes petal-fall-rotate {
+  0% {
+    transform: translateY(-10vh) rotateX(0deg) rotateZ(0deg);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(110vh) rotateX(360deg) rotateZ(360deg);
+    opacity: 0;
+  }
+}
+</style>
+</head>
+<body>
+<div id="background"></div>
+<div id="petals"></div>
+
+<main class="container" role="main" aria-label="Thiệp mời sự kiện 20/10 EMIS">
+  <div class="left-column" aria-label="Phần trái thiệp mời">
+    <div class="badge" aria-label="Badge sự kiện">✨ HAPPY VIETNAMESE WOMEN'S DAY 20/10 ✨</div>
+    <h1>Thư Mời Chị Em Giáo Dục Tư Thục</h1>
+    <div class="subtitle">Một buổi gặp gỡ ấm áp, duyên dáng và tràn đầy năng lượng tích cực dành riêng<br> cho phái đẹp trong khối giáo dục tư thục.</div>
+    <p class="intro" aria-label="Lời ngỏ ấm áp">
+      Lời ngỏ ấm áp từ anh em EMIS gửi tới các chị em khối Giáo Dục Tư Thục nhân ngày Phụ nữ Việt Nam 20/10.
+    </p>
+    <div class="countdown" aria-live="polite" aria-atomic="true" aria-label="Đồng hồ đếm ngược tới sự kiện" id="countdown">
+      Đang tải đồng hồ đếm ngược...
+    </div>
+  </div>
+
+  <div class="right-column" aria-label="Phần phải thiệp mời">
+    <section class="cards" aria-label="Thông tin chi tiết sự kiện">
+      <article class="card" tabindex="0">
+        <span class="icon" aria-hidden="true">⏰</span>
+        <span><strong>Thời gian</strong>: 08h15, Thứ Ba, ngày 20/10/2026</span>
+      </article>
+      <article class="card" tabindex="0">
+        <span class="icon" aria-hidden="true">📍</span>
+        <span><strong>Địa điểm</strong>: Phòng làm việc EMIS</span>
+      </article>
+      <article class="card" tabindex="0">
+        <span class="icon" aria-hidden="true">💐</span>
+        <span><strong>Khách mời</strong>: Toàn thể Chị Em Giáo Dục Tư Thục</span>
+      </article>
+    </section>
+
+    <div class="message-box" aria-label="Lời nhắn đặc biệt">
+      “Sáng hôm đó, các chị em mình chỉ cần lên đồ thật xinh đẹp và rạng rỡ thôi nhé! Mọi thứ từ hoa tươi, quà xinh đến đồ ăn thức uống... anh em EMIS đã chuẩn bị chu đáo hết cho chị em rồi ạ 💕”
+    </div>
+
+    <button class="btn-confirm" id="confirmBtn" aria-haspopup="dialog" aria-controls="popup" aria-expanded="false" aria-label="Xác nhận tham dự và nhận lời chúc">
+      💖 Xác nhận tham dự &amp; Nhận lời chúc
+    </button>
+  </div>
+</main>
+
+<!-- Popup lời chúc -->
+<div id="popup-overlay" role="dialog" aria-modal="true" aria-labelledby="popup-message" tabindex="-1">
+  <div id="popup">
+    <button class="close-btn" aria-label="Đóng lời chúc">&times;</button>
+    <p id="popup-message"></p>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+<script>
+// Countdown timer
+const countdownEl = document.getElementById('countdown');
+const eventDate = new Date('2026-10-20T08:15:00');
+
+function updateCountdown() {
+  const now = new Date();
+  const diff = eventDate - now;
+
+  if (diff <= 0) {
+    countdownEl.textContent = "🎉 Sự kiện đã bắt đầu! Chúc các chị em một ngày thật vui vẻ! 🎉";
+    clearInterval(countdownInterval);
+    return;
+  }
+
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+  const minutes = Math.floor((diff / (1000 * 60)) % 60);
+  const seconds = Math.floor((diff / 1000) % 60);
+
+  countdownEl.textContent = 
+    `${days} ngày ${hours.toString().padStart(2,'0')} giờ ${minutes.toString().padStart(2,'0')} phút ${seconds.toString().padStart(2,'0')} giây`;
+}
+updateCountdown();
+const countdownInterval = setInterval(updateCountdown, 1000);
+
+// Popup & confetti logic
+const confirmBtn = document.getElementById('confirmBtn');
+const popupOverlay = document.getElementById('popup-overlay');
+const popupMessage = document.getElementById('popup-message');
+const closeBtn = popupOverlay.querySelector('.close-btn');
+
+const wishes = [
+  "Chúc chị em EMIS luôn xinh đẹp, rạng rỡ và thành công!",
+  "Mong các chị em có một ngày 20/10 ngập tràn yêu thương và niềm vui!",
+  "Chúc chị em sức khỏe dồi dào, hạnh phúc viên mãn!",
+  "Chúc các chị em EMIS luôn tỏa sáng như những đóa hoa tuyệt đẹp!",
+  "Mong chị em luôn giữ được nụ cười tươi và trái tim ấm áp!",
+  "Chúc chị em một ngày Phụ nữ Việt Nam thật ý nghĩa và đáng nhớ!",
+  "Chúc chị em EMIS luôn mạnh mẽ, tự tin và thành công rực rỡ!",
+  "Mong mọi điều tốt đẹp nhất sẽ đến với các chị em hôm nay và mãi về sau!"
+];
+
+function randomWish() {
+  return wishes[Math.floor(Math.random() * wishes.length)];
+}
+
+function showPopup() {
+  popupMessage.textContent = randomWish();
+  popupOverlay.style.display = 'flex';
+  confirmBtn.setAttribute('aria-expanded', 'true');
+  popupOverlay.focus();
+}
+
+function hidePopup() {
+  popupOverlay.style.display = 'none';
+  confirmBtn.setAttribute('aria-expanded', 'false');
+  confirmBtn.focus();
+}
+
+confirmBtn.addEventListener('click', () => {
+  // Fire confetti hearts and hearts shaped bursts
+  confetti({
+    particleCount: 100,
+    spread: 70,
+    origin: { y: 0.6 },
+    colors: ['#fff0f3', '#d94f70', '#ffe5ec'],
+    shapes: ['heart'],
+  });
+  // Fire petals rain
+  launchPetals(50);
+  showPopup();
+});
+
+closeBtn.addEventListener('click', hidePopup);
+
+popupOverlay.addEventListener('click', (e) => {
+  if (e.target === popupOverlay) {
+    hidePopup();
+  }
+});
+
+// Accessibility: close popup on Escape key
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && popupOverlay.style.display === 'flex') {
+    hidePopup();
+  }
+});
+
+// Background sparkles and floating hearts generation
+const bg = document.getElementById('background');
+const sparkleCount = 30;
+const heartCount = 15;
+
+function randomRange(min, max) {
+  return Math.random() * (max - min) + min;
+}
+
+function createSparkle() {
+  const sparkle = document.createElement('div');
+  sparkle.classList.add('sparkle');
+  sparkle.style.left = `${randomRange(0, 100)}vw`;
+  sparkle.style.top = `${randomRange(-10, 0)}vh`;
+  sparkle.style.animationDuration = `${randomRange(6, 12)}s`;
+  sparkle.style.animationDelay = `${randomRange(0, 12)}s`;
+  sparkle.style.opacity = randomRange(0.3, 0.9);
+  bg.appendChild(sparkle);
+}
+
+function createHeart() {
+  const heart = document.createElement('div');
+  heart.classList.add('floating-heart');
+  heart.style.left = `${randomRange(0, 100)}vw`;
+  heart.style.bottom = `${randomRange(-10, 0)}vh`;
+  heart.style.animationDuration = `${randomRange(8, 14)}s`;
+  heart.style.animationDelay = `${randomRange(0, 14)}s`;
+  heart.style.opacity = randomRange(0.4, 0.9);
+  bg.appendChild(heart);
+}
+
+for(let i=0; i<sparkleCount; i++) createSparkle();
+for(let i=0; i<heartCount; i++) createHeart();
+
+// Falling petals animation
+const petalsContainer = document.getElementById('petals');
+const petalColors = ['#ffc2d4', '#ffdae5', '#ffc2d4', '#ffdae5'];
+
+function createPetal() {
+  const petal = document.createElement('div');
+  petal.classList.add('petal');
+  const size = randomRange(12, 22);
+  petal.style.width = `${size}px`;
+  petal.style.height = `${size}px`;
+  petal.style.left = `${randomRange(0, 100)}vw`;
+  petal.style.animationDuration = `${randomRange(8, 15)}s, ${randomRange(3, 6)}s`;
+  petal.style.animationDelay = `${randomRange(0, 15)}s, 0s`;
+  petal.style.background = `radial-gradient(circle at center, ${petalColors[Math.floor(Math.random() * petalColors.length)]} 40%, #ffdae5 70%, transparent 100%)`;
+  petal.style.filter = `drop-shadow(0 0 3px ${petalColors[Math.floor(Math.random() * petalColors.length)]})`;
+  petalsContainer.appendChild(petal);
+
+  // Remove petal after animation to avoid DOM overload
+  setTimeout(() => {
+    petalsContainer.removeChild(petal);
+  }, 16000);
+}
+
+// Create continuous falling petals
+function launchPetals(count) {
+  for(let i=0; i<count; i++) {
+    setTimeout(createPetal, i * 200);
+  }
+}
+// Initial petals falling continuously
+setInterval(() => {
+  createPetal();
+}, 700);
+</script>
+</body>
+</html>
